@@ -1,0 +1,10 @@
+.card {
+  margin-top: 80px;
+  background-color: gray;
+  color: azure;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
