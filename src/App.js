@@ -1,39 +1,44 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import React from 'react'
+import { Route } from 'react-router-dom'
+import NavBar from './components/NavBar'
 import LandingPage from './components/LandingPage'
-import RestCard from './components/RestCard';
-import BeerCard from './components/BeerCard';
+import RestCard from './components/RestCard'
 import Footer from './components/Footer'
 import './app.css'
 class App extends React.Component {
 
   state = {
     restaurant: '',
-    viewRestaurant: false,
+    view: false
 }
 
 handleChange = (e) => {
     this.setState({
       restaurant: e.target.value,
-      viewRestaurant: true
+      view: true
     })
 }
 
 handleSubmit = (e) => {
   e.preventDefault();
+  this.setState({
+    restaurant: e.target.value,
+    view: true
+  })
+
 }
 
 render() {
     console.log(this.state.restaurant);
+    const view = this.state.view === false;
 
   return (
     <div>
-    <NavBar />
-    <main>
-      <Route exact path='/' component={LandingPage}/>
-          <form onSubmit={this.handleSubmit}>
-                <label>Restaurants/Bars:</label>
+        <NavBar />
+        <main>
+        <Route exact path='/' component={LandingPage} />
+          <form>
+                <label>Select location:  </label>
                 <select 
                 name='restaurant'
                 value={this.state.restaurant}
@@ -55,10 +60,9 @@ render() {
                     <option value='the-meat-cellar'>The Meat Cellar</option>
                 </select>
             </form>
-          <Route path='/beers' component= {RestCard}  />
-          <BeerCard />
+            {!view && (<RestCard />)}
         </main>
-        <Footer />
+      <Footer />
       </div>
   );
 }

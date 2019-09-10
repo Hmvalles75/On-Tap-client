@@ -12,6 +12,6 @@ function LandingPage(props) {
             <h3>at your local watering hole...</h3>
         </main>  
     )
-} 
+}          
 
 export default LandingPage;

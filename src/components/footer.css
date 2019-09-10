@@ -1,7 +1,10 @@
 .footer {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   font-size: 0.75rem;
   line-height: 0.05rem;
+  margin-top: 60px;
+  margin-bottom: 40px;
 }

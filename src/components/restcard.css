@@ -8,3 +8,20 @@
   align-items: center;
   width: 400px;
 }
+
+.card li {
+  list-style: none;
+}
+
+ul {
+  columns: 3;
+}
+
+button {
+  padding: 0;
+  border: none;
+  color: inherit;
+  font: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}

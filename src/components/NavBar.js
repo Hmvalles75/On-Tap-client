@@ -11,7 +11,7 @@ const NavBar = props => (
             <div className='spacer'></div>
             <div className='navbar_navigation_items'>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/" style={{ textDecoration: 'none', color: 'white'}}>Home</Link></li>
                 </ul>
             </div>
         </nav>
