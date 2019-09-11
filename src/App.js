@@ -4,32 +4,29 @@ import NavBar from './components/NavBar'
 import LandingPage from './components/LandingPage'
 import RestCard from './components/RestCard'
 import Footer from './components/Footer'
+import restaurant from './components/dummystore'
 import './app.css'
 class App extends React.Component {
 
   state = {
-    restaurant: '',
-    view: false
+    restaurant,
+    view: false   
 }
 
 handleChange = (e) => {
     this.setState({
-      restaurant: e.target.value,
+      restaurant: {
+        name: restaurant[0].name,
+        address: restaurant[0].address,
+        telephone: restaurant[0].telephone
+      },
       view: true
     })
 }
 
-handleSubmit = (e) => {
-  e.preventDefault();
-  this.setState({
-    restaurant: e.target.value,
-    view: true
-  })
-
-}
 
 render() {
-    console.log(this.state.restaurant);
+    console.log(this.state.restaurant[0]);
     const view = this.state.view === false;
 
   return (
@@ -38,29 +35,29 @@ render() {
         <main>
         <Route exact path='/' component={LandingPage} />
           <form>
-                <label>Select location:  </label>
-                <select 
-                name='restaurant'
-                value={this.state.restaurant}
-                onChange={this.handleChange}
-                >
-                    <option value='select'></option>
-                    <option value='back-abbey'>The Back Abbey</option>
-                    <option value='casa-moreno'>Casa Moreno</option>
-                    <option value='eureka'>Eureka!</option>
-                    <option value='heroes-and-legends'>Heroes and Legends</option>
-                    <option value='pizza-n-such'>Pizza 'n Such</option>
-                    <option value='tutti-mangia'>Tutti Mangia</option>
-                    <option value='union-on-yale'>Union on Yale</option>
-                    <option value='the-whisper-house'>The Whisper House</option>
-                    <option value='the-quarter'>The Quarter Creole Cuisine</option>
-                    <option value='viva-madrid'>Viva Madrid</option>
-                    <option value='dr-grubbs'>Dr. Grubbs</option>
-                    <option value='nunos-bistro'>Nuno's Bistro</option>
-                    <option value='the-meat-cellar'>The Meat Cellar</option>
+                <label>Select location:</label>
+                <select name='restaurant'
+                        onChange={this.handleChange}>
+                    <option value=''></option>
+                    <option value={restaurant[0]}>The Back Abbey</option>
+                    <option value='Casa Moreno'>Casa Moreno</option>
+                    <option value={restaurant[1]}>Eureka!</option>
+                    <option value='Heroes and Legends'>Heroes and Legends</option>
+                    <option value='Pizza N Such'>Pizza 'n Such</option>
+                    <option value='Tutti Mangia'>Tutti Mangia</option>
+                    <option value='Union On Yale'>Union on Yale</option>
+                    <option value='The Whisper House'>The Whisper House</option>
+                    <option value='The Quarter'>The Quarter Creole Cuisine</option>
+                    <option value='Viva Madrid'>Viva Madrid</option>
+                    <option value='Dr Grubbs'>Dr. Grubbs</option>
+                    <option value='Nunos Bistro'>Nuno's Bistro</option>
+                    <option value='The Meat Cellar'>The Meat Cellar</option>
                 </select>
             </form>
-            {!view && (<RestCard />)}
+            {!view && (<RestCard name={this.state.restaurant.name}
+                                 address={this.state.restaurant.address}
+                                 telephone={this.state.restaurant.telephone}
+            />)}
         </main>
       <Footer />
       </div>
