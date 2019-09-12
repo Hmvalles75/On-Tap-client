@@ -1,23 +1,29 @@
 import React from 'react';
 import './beercard.css';
+import { beers } from './dummystore';
 
 class BeerCard extends React.Component {
 
     render() {
-     
+     console.log (this.props)
+     const beer = beers.find(
+         b => b.name === this.props.beer
+     )
+     if (!beer) {
+         return <p>No such beer</p>
+     } 
+    return <div className='beercard' key={beer.name}>
+        <h2>{beer.name}</h2>
+        <p>Brewery: {beer.brewery} </p>
+        <hr width="90%" align="center" />
+        <p>Style: {beer.style}</p>
+        <hr width="90%" align="center" />
+        <p>ABV: {beer.abv}</p>
+        <hr width="90%" align="center" />
+        <p>Country: {beer.country}</p>
+        </div>
 
-        return (
-        <div className='beercard'>
-            <h2>Avec Les Bons Voeux</h2>
-            <p>Brewery: Brasserie Dupont</p>
-            <hr width="90%" aligh="center" />
-            <p>Style: Beligian Saison</p>
-            <hr width="90%" aligh="center" />
-            <p>ABV: 9.5%</p>
-            <hr width="90%" aligh="center" />
-            <p>Country of Origin: Belgium</p>
-        </div> 
-    )
+     
 }
 }
 export default BeerCard;

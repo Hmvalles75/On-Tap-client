@@ -5,28 +5,27 @@ import './restcard.css';
 class RestCard extends React.Component {
 
     state = {
-        beers: ['Avec Les Bons', 'Celebrator', 'De Garre', 'Bavik', 'Chimay White', 'Delerium'],
-        beer: '',
-        show: false
+        beers: [],
+        view: null
     }
 
     handleClick = (e) => {
+        e.preventDefault();
         this.setState({
-            beer: e.target.value,
-            show: true})
+           view: e.target.value
+        })
     }
-  
 
     render() {
-       
-       // console.log(this.state.beers)
 
-        const show = this.state.show === false;
-        const beers = this.state.beers
+        //console.log(this.props.beers)
+       
+        
+        const beers = this.props.beers
         const listItems = beers.map(beer =>
-             <li key={beers.id}><button 
+             <li key={beer}><button 
+            value={beer}
             onClick={this.handleClick}
-            value={this.state.beers}
             >{beer}</button></li>
         )
         
@@ -36,10 +35,12 @@ class RestCard extends React.Component {
             <div className='card'>
                 <h2>{this.props.name}</h2>
                 <hr align='center' width='90%' />
-                <h5>{this.props.address} | {this.props.telephone}</h5>
+                <p>{this.props.address} | {this.props.telephone}</p>
+                <p>Hours: {this.props.hours}</p>
+                <hr align='center' width='90%' />
                 <h4>What's On Tap:</h4>
                 <ul className='list'>{listItems}</ul>
-                {!show && (<BeerCard />)}
+                {this.state.view && (<BeerCard beer={this.state.view}/>)}
             </div>
         )
     }

@@ -13,8 +13,8 @@
   list-style: none;
 }
 
-ul {
-  columns: 3;
+li:hover {
+  color: royalblue;
 }
 
 button {
