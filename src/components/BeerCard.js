@@ -10,7 +10,7 @@ class BeerCard extends React.Component {
          b => b.name === this.props.beer
      )
      if (!beer) {
-         return <p>No such beer</p>
+         return <p>No such beer. Please select another beer.</p>
      } 
     return <div className='beercard' key={beer.name}>
         <h2>{beer.name}</h2>

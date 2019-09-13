@@ -11,6 +11,7 @@ class RestCard extends React.Component {
 
     handleClick = (e) => {
         e.preventDefault();
+        document.getElementById('down').scrollIntoView();
         this.setState({
            view: e.target.value
         })
@@ -48,7 +49,9 @@ class RestCard extends React.Component {
                     </div>
                     <ul className='list'>{listItems}</ul>
                 </div>
+                <div id='down'>
                 {this.state.view && (<BeerCard beer={this.state.view}/>)}
+                </div>
             </div>
         )
     }
