@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import LandingPage from './components/LandingPage'
 import RestCard from './components/RestCard'
@@ -10,7 +10,7 @@ class App extends React.Component {
 
   state = {
     restaurants: [],
-    view: null   
+    view: null
   }
 
   componentDidMount() {
@@ -22,22 +22,26 @@ class App extends React.Component {
   //    } 
  //   }
 handleChange = (e) => {
+    this.props.history.push(`/restaurant/${e.target.value}`)
     this.setState({
       view: e.target.value
-    })
-}
+    }) 
+} 
+
+
 
 
 render() {
+  console.log(this.props)
     console.log(this.state.restaurants);
     const view = this.state.view && this.state.restaurants.find(
-      restaurant => restaurant.name === this.state.view
+      restaurant => restaurant.id === Number(this.state.view)
     )
 
 const loading = !this.state.restaurants.length && <p>Loading...</p>
 
   return (
-    <div>
+    <div className='body'>
         <NavBar />
         <main>
         <Route exact path='/' component={LandingPage} />
@@ -48,9 +52,7 @@ const loading = !this.state.restaurants.length && <p>Loading...</p>
                     onChange={this.handleChange}>
                 <option value=''></option>
                 {this.state.restaurants.map(
-                  restaurant => <option key={restaurant.id}>{restaurant.name}</option>  
-                )}
-            
+                  restaurant => <option value={restaurant.id} key={restaurant.id}>{restaurant.name}</option>)}
             </select>
         </form>
           )}
@@ -68,4 +70,4 @@ const loading = !this.state.restaurants.length && <p>Loading...</p>
 }
 }
 
-export default App
+export default withRouter(App)

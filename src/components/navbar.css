@@ -1,8 +1,9 @@
 .navbar {
   width: 100%;
   position: fixed;
-  background-color: darkgrey;
+  background-color: black;
   height: 56px;
+  z-index: 99;
 }
 
 .navbar_navigation {
@@ -13,9 +14,10 @@
 }
 
 .navbar_logo {
-  color: white;
+  color: #ecae12;
   text-decoration: none;
   font-size: 1.5rem;
+  font-family: "Fredericka the Great", cursive;
 }
 
 .navbar_navigation_items ul {

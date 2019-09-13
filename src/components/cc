@@ -6,18 +6,34 @@
             >{beer}</button></li>
 
             {
-id: 2,
-name: 'Eureka!', 
-address: '580 W First St', 
-telephone: '909-445-8879', 
-beers: ['Bud Light', 'Black & Blue', 'Green Zebra', 'White Russian Nitro', 'La Foile'] 
-},
-{
-id: 3,
-name: 'The Meat Cellar', 
-address: '160 W Foothill Blvd', 
-telephone: '909-741-7875', 
-beers: ['FortuneTeller: Citra', '35 Miles NE', 'Fortune Teller: Mosaic', 'Pomona Queen'] 
-}
-    ]
+
+   const beers = this.props.beers
+        const listItems = beers.map(beer =>
+            
+             <li key={beer}><button 
+            value={beer}
+            onClick={this.handleClick}
+            >{beer}</button></li>
+        )
+
+        <div className='beercard' key={beer.name}>
+
+                <h2>{beer.name}</h2>
+                <p>Brewery: {beer.brewery} </p>
+                <hr width="90%" align="center" />
+                <p>Style: {beer.style}</p>
+                <hr width="90%" align="center" />
+                <p>ABV: {beer.abv}</p>
+                <hr width="90%" align="center" />
+                <p>Country: {beer.country}</p>
+                </div>
+
+.beercard {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  width: 400px;
 }

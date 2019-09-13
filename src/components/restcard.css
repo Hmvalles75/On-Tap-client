@@ -1,12 +1,15 @@
 .card {
   margin-top: 80px;
-  background-color: gray;
-  color: azure;
+  background-color: #053674;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 400px;
+  border-radius: 7px;
+  box-shadow: 4px 4px 0 0 #fff;
+  margin-bottom: 2em;
 }
 
 .card li {
@@ -24,4 +27,60 @@ button {
   font: inherit;
   background-color: transparent;
   cursor: pointer;
+}
+
+.list {
+  margin-bottom: 1rem;
+  width: 333px;
+}
+
+.btn {
+  width: 300px;
+  overflow: hidden;
+  border: 2px solid #fff;
+  color: #fff;
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  cursor: pointer;
+  padding: 15px 25px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  transition: 0.3s;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  transition-property: color;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ecae12;
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  transition-property: transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  color: white;
+}
+
+.btn:hover:before,
+.btn:focus:before,
+.btn:active:before {
+  -webkit-transform: scaleY(1);
+  transform: scaleY(1);
 }

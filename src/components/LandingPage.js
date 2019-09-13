@@ -6,10 +6,10 @@ function LandingPage(props) {
 
     return (
         <main>
-            <h1>On Tap!</h1>
-            <h2>--in Downtown Claremont--</h2>
-            <h3>See what's <span>on tap</span></h3>
-            <h3>at your local watering hole...</h3>
+            <h1 className='on'>On</h1>
+            <h1>Tap</h1>
+            <h3 className='line1'>See what's <span>on tap</span></h3>
+            <h3 className='line2'>in Downtown Claremont</h3>
         </main>  
     )
 }          

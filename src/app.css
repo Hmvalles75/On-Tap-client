@@ -2,3 +2,8 @@ form {
   justify-content: center;
   align-items: center;
 }
+
+.body {
+  background-color: #ecae12;
+  height: 100%;
+}
