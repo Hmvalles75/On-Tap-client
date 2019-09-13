@@ -38,12 +38,14 @@ class RestCard extends React.Component {
         return (
             <div>
                 <div className='card'>
-                    <h2>{this.props.name}</h2>
-                    <hr align='center' width='90%' />
-                    <p>{this.props.address} | {this.props.telephone}</p>
-                    <p>Hours: {this.props.hours}</p>
-                    <hr align='center' width='90%' />
-                    <h4>What's On Tap:</h4>
+                    <div className='restHead'>
+                        <h2>{this.props.name}</h2>
+                        <hr align='center' width='90%' />
+                        <p>{this.props.address} | {this.props.telephone}</p>
+                        <p>Hours: {this.props.hours}</p>
+                        <hr align='center' width='90%' />
+                        <h4>What's On Tap:</h4>
+                    </div>
                     <ul className='list'>{listItems}</ul>
                 </div>
                 {this.state.view && (<BeerCard beer={this.state.view}/>)}

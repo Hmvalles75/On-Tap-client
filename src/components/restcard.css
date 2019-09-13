@@ -4,12 +4,17 @@
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 400px;
   border-radius: 7px;
   box-shadow: 4px 4px 0 0 #fff;
   margin-bottom: 2em;
+}
+
+.restHead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card li {
@@ -83,4 +88,35 @@ button {
 .btn:active:before {
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
+}
+
+h2 {
+  font-family: "Fredericka the Great", cursive;
+  font-size: 45px;
+  letter-spacing: -1px;
+
+  color: #fff;
+  text-shadow: 2px 2px lightslategray;
+}
+
+h4 {
+  font-family: "Satisfy", cursive;
+  font-size: 2.5em;
+  transform: rotate(-6deg);
+  margin-bottom: 0.25em;
+  margin-top: 0.25em;
+}
+
+@media screen and (min-width: 900px) {
+  .card {
+    width: 750px;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: center;
+  }
 }
