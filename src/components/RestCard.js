@@ -42,9 +42,11 @@ class RestCard extends React.Component {
                     <div className='restHead'>
                         <h2>{this.props.name}</h2>
                         <hr align='center' width='90%' />
+                        <div className='address'>
                         <p>{this.props.address} | {this.props.telephone}</p>
                         <p>Hours: {this.props.hours}</p>
                         <hr align='center' width='90%' />
+                        </div>
                         <h4>What's On Tap:</h4>
                     </div>
                     <ul className='list'>{listItems}</ul>

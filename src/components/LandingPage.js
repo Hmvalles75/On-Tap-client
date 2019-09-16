@@ -6,10 +6,17 @@ function LandingPage(props) {
 
     return (
         <main>
-            <h1 className='on'>On</h1>
-            <h1>Tap</h1>
-            <h3 className='line1'>See what's <span>on tap</span></h3>
-            <h3 className='line2'>in Downtown Claremont</h3>
+            <div className='label'>
+                <h1>On Tap</h1>
+                <div className='info'>
+                    <p>Created by Hector Valles</p>
+                    <p>Copyright 2019</p>
+                </div>
+            </div>
+            <div className='tagLine'>
+                <h3>See what's on tap</h3>
+                <h3>in Downtown Claremont</h3>
+            </div>
         </main>  
     )
 }          

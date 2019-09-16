@@ -7,11 +7,11 @@ const NavBar = props => (
     <header className='navbar'>
         <nav className='navbar_navigation'>
             <div></div>
-            <div className='navbar_logo'>ON TAP</div>
+            <div className='navbar_logo'>On Tap</div>
             <div className='spacer'></div>
             <div className='navbar_navigation_items'>
                 <ul>
-                    <li><Link to="/" style={{ textDecoration: 'none', color: 'white'}}>Home</Link></li>
+                    <li><Link to="/" className='home'>Home</Link></li>
                 </ul>
             </div>
         </nav>

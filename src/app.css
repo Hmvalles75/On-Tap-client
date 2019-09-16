@@ -4,6 +4,28 @@ form {
 }
 
 .body {
-  background-color: #ecae12;
-  height: 100%;
+  background-color: gainsboro;
+  height: 100vh;
+}
+
+.menu select {
+  margin-top: 80px;
+  background-color: white;
+  border-radius: 7px;
+  color: #053674;
+  padding: 8px;
+  width: 250px;
+  border: 3px solid gold;
+  font-size: 20px;
+  box-shadow: 5px 5px 15px 5px #000000;
+  outline: none;
+}
+
+.menu:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu select option {
+  padding: 30px;
 }

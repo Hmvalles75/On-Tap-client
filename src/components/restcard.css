@@ -6,8 +6,8 @@
   flex-direction: column;
   width: 400px;
   border-radius: 7px;
-  box-shadow: 4px 4px 0 0 #fff;
   margin-bottom: 2em;
+  box-shadow: 5px 5px 15px 5px #000000;
 }
 
 .restHead {
@@ -19,10 +19,6 @@
 
 .card li {
   list-style: none;
-}
-
-li:hover {
-  color: royalblue;
 }
 
 button {
@@ -91,12 +87,21 @@ button {
 }
 
 h2 {
-  font-family: "Fredericka the Great", cursive;
+  font-family: "Lobster Two", cursive;
   font-size: 45px;
-  letter-spacing: -1px;
+  letter-spacing: 1px;
+  color: gold;
+}
 
-  color: #fff;
-  text-shadow: 2px 2px lightslategray;
+.address {
+  font-family: inherit;
+  font-size: inherit;
+  background: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-align: center;
+  color: gainsboro;
 }
 
 h4 {

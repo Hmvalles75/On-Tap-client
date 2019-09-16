@@ -3,7 +3,6 @@ import { Route, withRouter } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import LandingPage from './components/LandingPage'
 import RestCard from './components/RestCard'
-import Footer from './components/Footer'
 import { restaurants } from './components/dummystore'
 import './app.css'
 class App extends React.Component {
@@ -47,13 +46,15 @@ const loading = !this.state.restaurants.length && <p>Loading...</p>
         <Route exact path='/' component={LandingPage} />
           {loading || (
             <form>
-            <label>Select location:</label>
+            <div className='menu'>
             <select name='restaurant'
                     onChange={this.handleChange}>
-                <option value=''></option>
+                  
+                <option value=''>Please select a bar..</option>
                 {this.state.restaurants.map(
                   restaurant => <option value={restaurant.id} key={restaurant.id}>{restaurant.name}</option>)}
             </select>
+            </div>
         </form>
           )}
           
@@ -64,7 +65,6 @@ const loading = !this.state.restaurants.length && <p>Loading...</p>
                                  beers={view.beers}
             />)}
         </main>
-      <Footer />
       </div>
   );
 }
