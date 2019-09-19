@@ -39,17 +39,17 @@ class BeerCard extends React.Component {
      } 
      console.log(beer);
     return <div className='beercard' key={beer.id}>
-        <h2>{beer.beer_name}</h2>
-        <div className="beerInfo">
-        <p>Brewery:<span> {beer.brewery}</span> </p>
-        <hr />
-        <p>Style:<span> {beer.style}</span></p>
-        <hr/>
-        <p>ABV:<span> {beer.abv}</span></p>
-        <hr/>
-        <p>Country:<span> {beer.country}</span></p>
-        </div>
-        </div>
+            <h2>{beer.beer_name}</h2>
+            <div className="beerInfo">
+                <p>Brewery:<span> {beer.brewery}</span> </p>
+                <hr />
+                <p>Style:<span> {beer.style}</span></p>
+                <hr/>
+                <p>ABV:<span> {beer.abv}</span></p>
+                <hr/>
+                <p>Country:<span> {beer.country}</span></p>
+            </div>
+           </div>
 
      
 }
