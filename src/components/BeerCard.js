@@ -1,19 +1,45 @@
 import React from 'react';
 import './beercard.css';
-import { beers } from './dummystore';
+//import { beers } from './dummystore';
 
 class BeerCard extends React.Component {
 
+    state = {
+        beer: null,
+    }
+
+    componentDidMount() {
+        this.fetchBeer()
+    }
+
+    componentDidUpdate() {
+        if(this.state.beer && this.props.beer === this.state.beer.id) {
+        return }
+        else {this.fetchBeer()}
+    }
+    
+    fetchBeer = () => {
+     let id = this.props.beer
+        fetch(`http://localhost:8000/api/beers/${id}`)
+        .then(res => res.json())
+        .then(beer => {
+            this.setState({
+                beer: beer[0]
+            })
+        })
+    }
+    
+
+
     render() {
      console.log (this.props)
-     const beer = beers.find(
-         b => b.name === this.props.beer
-     )
+     const beer = this.state.beer
      if (!beer) {
          return <p>No such beer. Please select another beer.</p>
      } 
-    return <div className='beercard' key={beer.name}>
-        <h2>{beer.name}</h2>
+     console.log(beer);
+    return <div className='beercard' key={beer.id}>
+        <h2>{beer.beer_name}</h2>
         <div className="beerInfo">
         <p>Brewery:<span> {beer.brewery}</span> </p>
         <hr />

@@ -14,7 +14,7 @@ form {
   border-radius: 7px;
   color: #053674;
   padding: 8px;
-  width: 250px;
+  width: auto;
   border: 3px solid gold;
   font-size: 20px;
   box-shadow: 5px 5px 15px 5px #000000;

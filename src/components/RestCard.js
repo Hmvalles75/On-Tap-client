@@ -1,35 +1,52 @@
 import React from 'react';
 import BeerCard from './BeerCard';
+import { animateScroll as scroll, scroller } from 'react-scroll'
 import './restcard.css';
 
 class RestCard extends React.Component {
 
     state = {
-        beers: [],
+        restaurant: null,
         view: null
     }
 
+    componentDidMount() {
+        const id = this.props.match.params.id;
+        fetch(`http://localhost:8000/api/restaurants/${id}`)
+        .then(res => res.json())
+        .then(restaurant => {
+            this.setState({
+                restaurant: restaurant
+            })
+        })
+    }
+    
+    scrollTo() {
+        scroller.scrollTo('down', {
+        duration: 800,
+        delay:0,
+        smooth:'easeInOutQuart'
+    })
+    }
     handleClick = (e) => {
         e.preventDefault();
-        document.getElementById('down').scrollIntoView();
-        this.setState({
+        scroll.scrollTo(500)
+        this.setState({ 
            view: e.target.value
         })
     }
 
     render() {
-
-        //console.log(this.props.beers)
-       
-        
-        const beers = this.props.beers
-        const listItems = beers.map(beer =>
+        console.log(this.props)
+        if (!this.state.restaurant) { return <p>Loading...</p>}
+        const { restaurant } = this.state;
+        const listItems = restaurant.beers.map(beer =>
             
-             <li key={beer} className='list'>
+             <li key={beer.id} className='list'>
                 <button className='btn'
-                    value={beer}
+                    value={beer.id}
                     onClick={this.handleClick}>
-                {beer}
+                {beer.name}
                 </button>
             </li>
         )
@@ -40,11 +57,11 @@ class RestCard extends React.Component {
             <div>
                 <div className='card'>
                     <div className='restHead'>
-                        <h2>{this.props.name}</h2>
+                        <h2>{restaurant.restaurant_name}</h2>
                         <hr align='center' width='90%' />
                         <div className='address'>
-                        <p>{this.props.address} | {this.props.telephone}</p>
-                        <p>Hours: {this.props.hours}</p>
+                        <p>{restaurant.street} | {restaurant.telephone}</p>
+                        <p>Hours: {restaurant.hrs}</p>
                         <hr align='center' width='90%' />
                         </div>
                         <h4>What's On Tap:</h4>

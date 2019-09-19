@@ -37,3 +37,26 @@
   background-color: black;
   width: 400px;
 }
+
+ document.getElementById('down').scrollIntoView({behavior: 'smooth'});
+
+   componentDidMount() {
+    //setTimeout(() => {this.setState({restaurants:restaurants})}, 500) 
+    fetch('http://localhost:8000/api/restaurants')
+    .then(res => res.json()) 
+    .then(data => {
+      console.log(data)
+      this.setState({restaurants: data.restaurants})
+        
+      }) 
+  } 
+
+   const view = this.state.view && this.state.restaurants.find(
+      restaurant => restaurant.id === Number(this.state.view)
+    )
+
+     <RestCard name={restaurants.restaurant_name}
+                    address={restaurants.address}
+                    telephone={restaurants.telephone}
+                    hours={restaurants.hours}
+                    beers={restaurants.beers}/>
