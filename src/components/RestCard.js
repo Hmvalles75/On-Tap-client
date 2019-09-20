@@ -11,17 +11,6 @@ class RestCard extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchRestaurant()
-    }
-
-    componentDidUpdate() {
-        if(this.state.restaurant && this.state.restaurant === this.state.restaurant.id) {
-        return }
-        else {this.fetchRestaurant()}
-    }
-    
-
-    fetchRestaurant = () => {
         const id = this.props.match.params.id;
         fetch(`http://localhost:8000/api/restaurants/${id}`)
         .then(res => res.json())
@@ -31,6 +20,8 @@ class RestCard extends React.Component {
             })
         })
     }
+
+   
     
     scrollTo() {
         scroller.scrollTo('down', {

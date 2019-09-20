@@ -1,6 +1,5 @@
 import React from 'react';
 import './beercard.css';
-//import { beers } from './dummystore';
 
 class BeerCard extends React.Component {
 

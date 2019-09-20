@@ -7,7 +7,7 @@ main {
 
 .label {
   font-family: "Lobster Two", cursive;
-  font-size: 60px;
+  font-size: 50px;
   color: #fff;
   padding: 5px 15px 60px;
   margin-top: 2em;
@@ -28,6 +28,7 @@ main {
 
 .tagLine {
   font-family: "Satisfy", cursive;
+  color: #fff;
   text-align: center;
   font-size: 1.5em;
   line-height: 0.25;

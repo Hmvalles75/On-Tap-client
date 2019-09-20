@@ -4,8 +4,10 @@ form {
 }
 
 .body {
-  background-color: gainsboro;
-  height: 100vh;
+  background: url(./images/tap-1024x683.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  height: 200vh;
 }
 
 .menu select {

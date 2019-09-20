@@ -3,7 +3,6 @@ import { Route, withRouter } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import LandingPage from './components/LandingPage'
 import RestCard from './components/RestCard'
-//import { restaurants } from './components/dummystore'
 import './app.css'
 class App extends React.Component {
 
@@ -13,7 +12,6 @@ class App extends React.Component {
   }  
 
   componentDidMount() {
-    //setTimeout(() => {this.setState({restaurants:restaurants})}, 500)
     fetch('http://localhost:8000/api/restaurants')
     .then(res => res.json()) 
     .then(data => {
@@ -30,35 +28,31 @@ handleChange= (e) => {
 } 
 
 render() {
- // console.log(this.props)
- // console.log(this.state.restaurants);   
-  const { restaurants } = this.state;
 
+  const { restaurants } = this.state;
   const loading = !restaurants.length && <p>Loading...</p>
 
   return (
+
     <div className='body'>
         <NavBar />
         <main>
         <Route exact path='/' component={LandingPage} />
           {loading ||(       
             <form>
-            <div className='menu'>
-            <select name='restaurant'
-                    onChange={this.handleChange}>
-                  
+              <div className='menu'>
+              <select name='restaurant'
+                      onChange={this.handleChange}> 
                 <option value=''>Please select a bar..</option>
-                {restaurants.map(
-                  restaurant => <option value={restaurant.id} key={restaurant.id}>{restaurant.restaurant_name}</option>)}
-            </select>
-            </div>
-        </form>
+                  {restaurants.map(
+                    restaurant => <option value={restaurant.id} key={restaurant.id}>{restaurant.restaurant_name}</option>)}
+              </select>
+              </div>
+            </form>
            )} 
-           <Route exact path='/restaurants/:id' component={RestCard} />
-        
-         
+        <Route exact path='/restaurants/:id' component={RestCard} />
         </main>
-      </div>
+    </div>
     )          
   }
 }
