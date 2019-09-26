@@ -11,10 +11,9 @@ class BeerCard extends React.Component {
         this.fetchBeer()
     }
 
-    componentDidUpdate() {
-        if(this.state.beer && this.props.beer === this.state.beer.id) {
-        return }
-        else {this.fetchBeer()}
+    componentDidUpdate(prevProps) {
+       // console.log('here is my previous props', prevProps);
+        if(this.props.beer !== prevProps.beer) {this.fetchBeer()};
     }
     
     fetchBeer = () => {
@@ -31,12 +30,12 @@ class BeerCard extends React.Component {
 
 
     render() {
-     console.log (this.props)
+    
      const beer = this.state.beer
      if (!beer) {
          return <p>No such beer. Please select another beer.</p>
      } 
-     console.log(beer);
+    
     return <div className='beercard' key={beer.id}>
             <h2>{beer.beer_name}</h2>
             <div className="beerInfo">

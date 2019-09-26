@@ -58,3 +58,4 @@ render() {
 }
 
 export default withRouter(App)
+//<Route exact path='/restaurants/:id' render={props => <Restcard {...props} id={() => this.props.match.params.id}/>} />

@@ -7,16 +7,26 @@ class RestCard extends React.Component {
 
     state = {
         restaurant: null,
-        view: null
+        selectedBeer: null
     }
 
     componentDidMount() {
+        this.fetchRestaurant()
+    }
+
+    
+    componentDidUpdate(prevProps) {
+        if(this.props.match.params.id !== prevProps.match.params.id)
+         this.fetchRestaurant()
+    }
+
+    fetchRestaurant = () => {
         const id = this.props.match.params.id;
         fetch(`http://localhost:8000/api/restaurants/${id}`)
         .then(res => res.json())
         .then(restaurant => {
             this.setState({
-                restaurant: restaurant
+                restaurant,
             })
         })
     }
@@ -34,7 +44,7 @@ class RestCard extends React.Component {
         e.preventDefault();
         scroll.scrollTo(500)
         this.setState({ 
-           view: e.target.value
+           selectedBeer: e.target.value
         })
     }
 
@@ -71,7 +81,7 @@ class RestCard extends React.Component {
                     <ul className='list'>{listItems}</ul>
                 </div>
                 <div id='down'>
-                {this.state.view && (<BeerCard beer={this.state.view}/>)}
+                {this.state.selectedBeer && (<BeerCard beer={this.state.selectedBeer}/>)}
                 </div>
             </div>
         )
