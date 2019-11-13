@@ -4,21 +4,22 @@ form {
 }
 
 .body {
-  background: url(./images/tap-1024x683.jpg);
-  background-attachment: fixed;
+  background: url(./images/tap-1024x683.jpg) no-repeat center;
+  width: 100%;
+  overflow: hidden;
   background-size: cover;
-  height: 200vh;
+  height: 300vh;
 }
 
 .menu select {
-  margin-top: 80px;
+  margin-top: 60px;
   background-color: white;
   border-radius: 7px;
   color: #053674;
   padding: 8px;
   width: auto;
   border: 3px solid gold;
-  font-size: 20px;
+  font-size: 16px;
   box-shadow: 5px 5px 15px 5px #000000;
   outline: none;
 }
@@ -30,4 +31,15 @@ form {
 
 .menu select option {
   padding: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .menu select {
+    margin-top: 80px;
+    font-size: 18px;
+  }
+
+  .body {
+    height: 117vh;
+  }
 }

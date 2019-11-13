@@ -1,6 +1,6 @@
 import React from "react";
 import BeerCard from "../beercard/BeerCard";
-import { animateScroll as scroll, scroller } from "react-scroll";
+import { Link } from "react-scroll";
 import "./restcard.css";
 
 class RestCard extends React.Component {
@@ -21,7 +21,9 @@ class RestCard extends React.Component {
   fetchRestaurant = () => {
     const id = this.props.match.params.id;
     fetch(`http://localhost:8080/api/restaurants/${id}`)
-      .then(res => res.json())
+      .then(res =>
+        !res.ok ? res.json().then(err => Promise.reject(err)) : res.json()
+      )
       .then(restaurant => {
         this.setState({
           restaurant
@@ -29,16 +31,10 @@ class RestCard extends React.Component {
       });
   };
 
-  scrollTo() {
-    scroller.scrollTo("down", {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart"
-    });
-  }
+  //scrollToMyRef = () => window.scrollTo(0, this.myRef.current.offsetTop);
+
   handleClick = e => {
     e.preventDefault();
-    scroll.scrollTo(500);
     this.setState({
       selectedBeer: e.target.value
     });
@@ -73,11 +69,20 @@ class RestCard extends React.Component {
             </div>
             <h4>What's On Tap:</h4>
           </div>
-          <ul className="list">{listItems}</ul>
+          <Link
+            activeClass="active"
+            to="beercard"
+            spy={true}
+            smooth={true}
+            offset={-200}
+            duration={500}
+          >
+            <ul className="list">{listItems}</ul>
+          </Link>
         </div>
         <div id="down">
           {this.state.selectedBeer && (
-            <BeerCard beer={this.state.selectedBeer} />
+            <BeerCard id="beercard" beer={this.state.selectedBeer} />
           )}
         </div>
       </div>

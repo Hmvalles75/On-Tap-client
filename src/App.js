@@ -12,7 +12,9 @@ class App extends React.Component {
 
   componentDidMount() {
     fetch("http://localhost:8080/api/restaurants")
-      .then(res => res.json())
+      .then(res =>
+        !res.ok ? res.json().then(err => Promise.reject(err)) : res.json()
+      )
       .then(data => {
         //console.log(data);
         this.setState({ restaurants: data });
@@ -21,8 +23,6 @@ class App extends React.Component {
 
   handleChange = e => {
     this.props.history.push(`/restaurants/${e.target.value}`);
-
-    console.log(e.target.value);
   };
 
   render() {

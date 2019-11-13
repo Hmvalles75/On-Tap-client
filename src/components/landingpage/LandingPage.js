@@ -1,7 +1,7 @@
 import React from "react";
 import "./landingpage.css";
 
-function LandingPage(props) {
+function LandingPage() {
   return (
     <main>
       <div className="label">

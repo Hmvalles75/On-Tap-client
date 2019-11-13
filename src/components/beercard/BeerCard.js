@@ -17,19 +17,20 @@ class BeerCard extends React.Component {
   }
 
   fetchBeer = () => {
-    let id = this.props;
-    console.log(id);
+    let id = this.props.beer;
     fetch(`http://localhost:8080/api/beers/${id}`)
-      .then(res => res.json())
-      .then(beer => {
+      .then(res =>
+        !res.ok ? res.json().then(err => Promise.reject(err)) : res.json()
+      )
+      .then(data => {
         this.setState({
-          beer
+          beer: data
         });
       });
   };
 
   render() {
-    const beer = this.props.beer;
+    const beer = this.state.beer;
     if (!beer) {
       return <p>No such beer. Please select another beer.</p>;
     }

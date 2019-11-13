@@ -7,9 +7,9 @@ main {
 
 .label {
   font-family: "Lobster Two", cursive;
-  font-size: 50px;
+  font-size: 33px;
   color: #fff;
-  padding: 5px 15px 60px;
+  padding: 1px 15px 60px;
   margin-top: 2em;
   margin-bottom: 0.25em;
   background-color: #053674;
@@ -17,6 +17,10 @@ main {
   border: 8px double gold;
   border-radius: 0px 40px 0px 40px;
   box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.label h1 {
+  text-shadow: darkgrey 5px 5px;
 }
 .info {
   color: gainsboro;
@@ -27,11 +31,28 @@ main {
 }
 
 .tagLine {
+  background-color: rgba(228, 57, 65, 0.8);
+  padding: 10px;
+  border: 8px double gold;
+  border-radius: 0px 40px 0px 40px;
+  box-shadow: 5px 5px 15px 5px #000000;
   font-family: "Satisfy", cursive;
-  color: #fff;
+  text-shadow: black 2px 2px;
+  color: white;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1em;
   line-height: 0.25;
   margin-bottom: -30px;
   margin-top: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .label {
+    font-size: 50px;
+    padding: 5px 15px 60px;
+  }
+
+  .tagLine {
+    font-size: 1.5em;
+  }
 }
