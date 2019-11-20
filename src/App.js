@@ -11,7 +11,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:8080/api/restaurants")
+    fetch("https://pacific-island-80663.herokuapp.com/api/restaurants")
       .then(res =>
         !res.ok ? res.json().then(err => Promise.reject(err)) : res.json()
       )

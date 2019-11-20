@@ -20,7 +20,7 @@ class RestCard extends React.Component {
 
   fetchRestaurant = () => {
     const id = this.props.match.params.id;
-    fetch(`http://localhost:8080/api/restaurants/${id}`)
+    fetch(`https://pacific-island-80663.herokuapp.com/api/restaurants/${id}`)
       .then(res =>
         !res.ok ? res.json().then(err => Promise.reject(err)) : res.json()
       )

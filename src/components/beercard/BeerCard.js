@@ -18,7 +18,7 @@ class BeerCard extends React.Component {
 
   fetchBeer = () => {
     let id = this.props.beer;
-    fetch(`http://localhost:8080/api/beers/${id}`)
+    fetch(`https://pacific-island-80663.herokuapp.com/api/beers/${id}`)
       .then(res =>
         !res.ok ? res.json().then(err => Promise.reject(err)) : res.json()
       )
