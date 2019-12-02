@@ -8,7 +8,7 @@ Live app: https://on-tap-client.hmvalles75.now.sh/
 
 client repo: https://github.com/Hmvalles75/On-Tap-client
 
-server repo: https://github.com/Hmvalles75/On-Tap-server
+server repo: https://github.com/Hmvalles75/On-Tap-Api
 
 ## Installation
 
