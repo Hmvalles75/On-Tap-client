@@ -1,6 +1,6 @@
 import React from "react";
 import BeerCard from "../beercard/BeerCard";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 import "./restcard.css";
 
 class RestCard extends React.Component {
@@ -69,9 +69,9 @@ class RestCard extends React.Component {
             </div>
             <h4>What's On Tap:</h4>
           </div>
-          <Link>
+          <div>
             <ul className="list">{listItems}</ul>
-          </Link>
+          </div>
         </div>
         <div id="down">
           {this.state.selectedBeer && (
