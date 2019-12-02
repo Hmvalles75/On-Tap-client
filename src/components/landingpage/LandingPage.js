@@ -12,8 +12,10 @@ function LandingPage() {
         </div>
       </div>
       <div className="tagLine">
-        <h3>See what's on tap</h3>
-        <h3>in Downtown Claremont</h3>
+        <h3>See what beer is on tap</h3>
+        <h3>in every restaurant & bar in</h3>
+        <h3>Downtown Claremont</h3>
+        <h5>Select a location below to begin...</h5>
       </div>
     </main>
   );

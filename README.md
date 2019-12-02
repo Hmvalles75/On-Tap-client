@@ -1,6 +1,6 @@
 # On Tap Client
 
-<img src="./src/images/screenshot.jpg" alt="Good Meal" width="auto">
+<img src="./src/images/screenshot.jpg" alt="On Tap Screenshot" width="auto">
 
 On Tap is an application that allows the user to see what beers are on tap in every restaurant/bar in Downtown Claremont. It provides you with the restaurants information as well as what beers they have on tap. The user can chose a particular beer to see further detailed information of the chosen beer.
 

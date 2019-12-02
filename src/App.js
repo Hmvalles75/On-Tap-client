@@ -16,7 +16,6 @@ class App extends React.Component {
         !res.ok ? res.json().then(err => Promise.reject(err)) : res.json()
       )
       .then(data => {
-        //console.log(data);
         this.setState({ restaurants: data });
       });
   }

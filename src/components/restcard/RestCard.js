@@ -1,6 +1,6 @@
 import React from "react";
 import BeerCard from "../beercard/BeerCard";
-import { Link } from "react-scroll";
+import { Link, animateScroll as scroll } from "react-scroll";
 import "./restcard.css";
 
 class RestCard extends React.Component {
@@ -31,17 +31,18 @@ class RestCard extends React.Component {
       });
   };
 
-  //scrollToMyRef = () => window.scrollTo(0, this.myRef.current.offsetTop);
-
+  scrollToBottom() {
+    scroll.scrollToBottom();
+  }
   handleClick = e => {
     e.preventDefault();
     this.setState({
       selectedBeer: e.target.value
     });
+    this.scrollToBottom();
   };
 
   render() {
-    //console.log(this.props);
     if (!this.state.restaurant) {
       return <p>Loading...</p>;
     }
@@ -59,24 +60,16 @@ class RestCard extends React.Component {
         <div className="card">
           <div className="restHead">
             <h2>{restaurant.restaurant_name}</h2>
-            <hr align="center" width="90%" />
             <div className="address">
               <p>
-                {restaurant.street} | {restaurant.telephone}
+                {restaurant.street} | {restaurant.telephone} | {restaurant.hrs}
               </p>
-              <p>Hours: {restaurant.hrs}</p>
+
               <hr align="center" width="90%" />
             </div>
             <h4>What's On Tap:</h4>
           </div>
-          <Link
-            activeClass="active"
-            to="beercard"
-            spy={true}
-            smooth={true}
-            offset={-200}
-            duration={500}
-          >
+          <Link>
             <ul className="list">{listItems}</ul>
           </Link>
         </div>

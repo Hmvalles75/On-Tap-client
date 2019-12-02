@@ -4,15 +4,16 @@ form {
 }
 
 .body {
-  background: url(./images/tap-1024x683.jpg) no-repeat center;
+  background: url(./images/tap-1024x683.jpg) repeat center;
   width: 100%;
   overflow: hidden;
   background-size: cover;
-  height: 300vh;
+  height: auto;
 }
 
 .menu select {
   margin-top: 60px;
+  margin-bottom: 130px;
   background-color: white;
   border-radius: 7px;
   color: #053674;
@@ -34,12 +35,12 @@ form {
 }
 
 @media screen and (min-width: 600px) {
+  .body {
+    height: 102vh;
+  }
+
   .menu select {
     margin-top: 80px;
     font-size: 18px;
-  }
-
-  .body {
-    height: 117vh;
   }
 }
